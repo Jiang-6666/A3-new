@@ -69,6 +69,11 @@ public class GeminiDialogueService implements DialogueService {
      * @return A fallback prophecy.
      */
     private String getDefaultMonologue(String weather) {
+        // Handle null or empty weather description
+        if (weather == null || weather.isEmpty()) {
+            return "The winds... they carry the scent of change.";
+        }
+        
         String simpleWeather = weather.toLowerCase().contains("rain") ? "rain" :
                 weather.toLowerCase().contains("snow") ? "snow" : "clear";
 
